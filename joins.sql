@@ -1,3 +1,27 @@
+create table customers (
+	customer_id int primary key,
+    name varchar(50)
+);
+
+create table reservations (
+	id int primary key,
+    customer_id int,
+    day date,
+    foreign key (customer_id) references customers(customer_id) 
+);
+
+INSERT INTO `mydb`.`customers`
+VALUES 	(1,'Paul Novak'),
+		(2,'Terry Neils'),
+        (3,'Jack Fonda'),
+        (4,'Tom Willis');
+
+INSERT INTO `mydb`.`reservations`
+VALUES (1,1 ,'2009-11-22'),
+		(2,2 ,'2009-11-28'),
+        (3,2 ,'2009-11-29'),
+        (4,1 ,'2009-11-29'),
+        (5,3 ,'2009-12-02');
 -- INNER JOIN
 SELECT name, day 
 FROM customers AS c 
