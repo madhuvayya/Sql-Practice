@@ -26,3 +26,22 @@ DELIMITER ;
 
 -- calling the function CircleArea()
 SELECT CircleArea(5.5);
+
+-- Creating a procedure with parameters
+
+-- this procedure computes the power 
+-- of a given value
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS Pow;
+
+CREATE PROCEDURE Pow(IN val DOUBLE, OUT p DOUBLE) 
+BEGIN
+    SET p = val * val;
+END $$
+DELIMITER ;
+
+-- calling procedure
+CALL Pow(3, @p);
+SELECT @p;
+
